@@ -24,10 +24,10 @@ class MultiFileParser extends Parser
         $name = preg_replace('/⚡[\x{FE0E}\x{FE0F}]?/u', '', $name);
 
         $classPath = $path . '/' . $name . '.php';
-        $viewPath = $path . '/' . $name . '.blade.php';
         $scriptPath = $path . '/' . $name . '.js';
         $stylePath = $path . '/' . $name . '.css';
         $globalStylePath = $path . '/' . $name . '.global.css';
+        $viewPath = $path.'/'.$name.'.antlers.html';
 
         if (! file_exists($classPath)) {
             throw new \Exception('Class file not found: ' . $classPath);

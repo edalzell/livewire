@@ -404,8 +404,8 @@ class Finder
 
     protected function hasValidMultiFileComponentSource(string $dir, string $fileBaseName): bool
     {
-        return file_exists($dir . '/' . $fileBaseName . '.php')
-            && file_exists($dir . '/' . $fileBaseName . '.blade.php');
+        return file_exists($dir.'/'.$fileBaseName.'.php')
+            && file_exists($dir.'/'.$fileBaseName.'.antlers.html');
     }
 
     public function resolveSingleFileComponentPathForCreation(string $name): ?string
