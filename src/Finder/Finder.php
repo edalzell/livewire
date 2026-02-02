@@ -404,8 +404,17 @@ class Finder
 
     protected function hasValidMultiFileComponentSource(string $dir, string $fileBaseName): bool
     {
-        return file_exists($dir.'/'.$fileBaseName.'.php')
-            && file_exists($dir.'/'.$fileBaseName.'.antlers.html');
+        if (! file_exists($dir.'/'.$fileBaseName.'.php')) {
+            return false;
+        }
+
+        foreach (config()->array('livewire.component_view_extensions') as $extension) {
+            if (file_exists($dir.'/'.$fileBaseName.$extension)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function resolveSingleFileComponentPathForCreation(string $name): ?string

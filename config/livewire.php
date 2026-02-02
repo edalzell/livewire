@@ -58,6 +58,12 @@ return [
 
     'component_placeholder' => null, // Example: 'placeholders::skeleton'
 
+    'component_view_extensions' => [
+        '.antlers.html',
+        '.antlers.php',
+        '.blade.php',
+    ],
+
     /*
     |---------------------------------------------------------------------------
     | Make Command
